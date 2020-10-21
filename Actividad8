@@ -1,0 +1,23 @@
+//Clase principal Actividad8
+public class Actividad8 {
+	
+	//Constructor
+	public Actividad8() {
+		
+	}
+	
+
+	//Método Main
+	public static void main(String[] args) {
+		
+		Deck obj1 = new Deck();
+		obj1.Baraja();
+		obj1.Tamaño();
+		obj1.Shuffle();
+		obj1.Head();
+		obj1.Pick();
+		obj1.Hand();
+
+	}
+
+}
