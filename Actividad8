@@ -1,8 +1,13 @@
-//Clase principal Actividad8
-public class Actividad8 {
+import java.util.Scanner;
+import java.lang.*;
+
+//Clase principal Actividad9
+public class Actividad10 {
+	
+	Scanner sc = new Scanner(System.in);
 	
 	//Constructor
-	public Actividad8() {
+	public Actividad10() {
 		
 	}
 	
@@ -10,14 +15,77 @@ public class Actividad8 {
 	//Método Main
 	public static void main(String[] args) {
 		
+		Actividad10 obj1 = new Actividad10();
+		obj1.showMenu();
+	}
+	
+	public void showMenu() {
+		
 		Deck obj1 = new Deck();
+		
+		boolean verdadero = true;
+		
 		obj1.Baraja();
 		obj1.Tamaño();
-		obj1.Shuffle();
-		obj1.Head();
-		obj1.Pick();
-		obj1.Hand();
-
+		
+			do {
+				
+			try {
+				
+			System.out.println("\nBIENVENIDO AL POKER \nSelecciona \n1 para Mezclar Deck \n2 para Sacar una carta \n3 para Carta al azar \n4 para Generar una mano de 5 cartas \n0 Salir");
+			int x = sc.nextInt();
+			
+			if (x == 0 || x == 1 || x == 2 || x == 3 || x == 4) {
+							
+				switch (x) {
+				
+				case 0:
+					System.out.println("Salir ");
+					verdadero = false;
+					break;
+				
+				case 1:
+					System.out.println("Mezclar Deck ");
+					obj1.Shuffle();
+					break;
+				
+				case 2:
+					System.out.println("Sacar una carta ");
+					try{
+						obj1.Head();
+					}catch (Exception e) {
+						System.out.println(e.getMessage());
+						verdadero = false;
+					}
+					break;
+					
+				case 3:
+					System.out.println("Carta al azar ");
+					try{
+						obj1.Pick();
+					}catch (Exception e) {
+						System.out.println(e.getMessage());
+						verdadero = false;
+					}
+					break;
+					
+				case 4:
+					System.out.println("Generar una mano de 5 cartas ");
+					try{
+						obj1.Hand();
+					}catch (Exception e) {
+						System.out.println(e.getMessage());
+						verdadero = false;
+					}
+					break;
+				}
+				
+			}else {
+				throw new Exception("Opción no válida, intente de nuevo. ");
+			}
+			}catch (Exception e) {
+					System.out.println(e.getMessage());
+			}
+			}while(verdadero == true);				
 	}
-
 }
